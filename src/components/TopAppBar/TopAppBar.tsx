@@ -7,7 +7,11 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
-export default function TopAppBar() {
+interface TopAppBarProps {
+  toggleDrawer: () => void;
+}
+
+const TopAppBar = ({ toggleDrawer }: TopAppBarProps) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -18,6 +22,7 @@ export default function TopAppBar() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            onClick={() => toggleDrawer()}
           >
             <MenuIcon />
           </IconButton>
@@ -29,4 +34,6 @@ export default function TopAppBar() {
       </AppBar>
     </Box>
   );
-}
+};
+
+export default TopAppBar;
