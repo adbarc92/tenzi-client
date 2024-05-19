@@ -7,6 +7,8 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
+const TENZI_TITLE = "Tenzi"; // FIXME: Eventual localization
+
 interface TopAppBarProps {
   toggleDrawer: () => void;
 }
@@ -27,7 +29,7 @@ const TopAppBar = ({ toggleDrawer }: TopAppBarProps) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            {TENZI_TITLE}
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>

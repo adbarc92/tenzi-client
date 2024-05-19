@@ -8,7 +8,6 @@ const App = (): JSX.Element => {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = () => {
-    console.log(`Toggling drawer to ${!open}`);
     setOpen(!open);
   };
 
@@ -16,7 +15,6 @@ const App = (): JSX.Element => {
     <>
       <TopAppBar toggleDrawer={toggleDrawer} />
       <TemporaryDrawer toggleDrawer={toggleDrawer} isDrawerOpen={open} />
-      <h1>Tenzi</h1>
       <h3>10X your studying!</h3>
       <FlipCard />
     </>
