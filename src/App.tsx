@@ -1,15 +1,24 @@
-import { useState } from "react";
+import React from "react";
+import TemporaryDrawer from "./components/TemporaryDrawer/TemporaryDrawer.tsx";
 import "./App.css";
 import FlipCard from "./components/FlipCard/FlipCard.tsx";
+import TopAppBar from "./components/TopAppBar/TopAppBar.tsx";
 
-function App() {
+const App = (): JSX.Element => {
+  const [open, setOpen] = React.useState(false);
+
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
+
   return (
     <>
-      <h1>Tenzi</h1>
+      <TopAppBar toggleDrawer={toggleDrawer} />
+      <TemporaryDrawer toggleDrawer={toggleDrawer} isDrawerOpen={open} />
       <h3>10X your studying!</h3>
       <FlipCard />
     </>
   );
-}
+};
 
 export default App;
