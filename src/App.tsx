@@ -1,8 +1,8 @@
 import React from "react";
-import TemporaryDrawer from "./components/TemporaryDrawer/TemporaryDrawer.tsx";
+import TemporaryDrawer from "./components/TemporaryDrawer.tsx";
 import "./App.css";
-import FlipCard from "./components/FlipCard/FlipCard.tsx";
-import TopAppBar from "./components/TopAppBar/TopAppBar.tsx";
+import TopAppBar from "./components/TopAppBar.tsx";
+import { Outlet } from "react-router-dom";
 
 const App = (): JSX.Element => {
   const [open, setOpen] = React.useState(false);
@@ -16,7 +16,7 @@ const App = (): JSX.Element => {
       <TopAppBar toggleDrawer={toggleDrawer} />
       <TemporaryDrawer toggleDrawer={toggleDrawer} isDrawerOpen={open} />
       <h3>10X your studying!</h3>
-      <FlipCard />
+      <Outlet />
     </>
   );
 };

@@ -5,11 +5,11 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-    /* Import File Path */
     "baseUrl": "src",
-    // "paths": {
-    //   "components/*": ["components/*"]
-    // },
+    /* Import File Path */
+    "paths": {
+      "@routes/*": ["src/routes/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
