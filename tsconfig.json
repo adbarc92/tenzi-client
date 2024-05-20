@@ -6,10 +6,6 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "baseUrl": "src",
-    /* Import File Path */
-    "paths": {
-      "@routes/*": ["src/routes/*"]
-    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",
