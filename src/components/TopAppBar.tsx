@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
 
 const TENZI_TITLE = "Tenzi"; // FIXME: Eventual localization
 
@@ -28,9 +29,17 @@ const TopAppBar = ({ toggleDrawer }: TopAppBarProps) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+
+          <Typography
+            color="common.white"
+            variant="h6"
+            component={Link}
+            to={"/"} // FIXME: Standardize links somewhere
+            sx={{ flexGrow: 1 }}
+          >
             {TENZI_TITLE}
           </Typography>
+
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
