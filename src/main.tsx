@@ -1,47 +1,47 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import ErrorPage from "./routes/ErrorPage.tsx";
-import QuizPage from "./routes/QuizPage.tsx";
-import StudyGuidePage from "./routes/StudyGuidePage.tsx";
-import TermsPage from "./routes/TermsPage.tsx";
-import CategoriesPage from "./routes/CategoriesPage.tsx";
-import AccountPage from "./routes/AccountPage.tsx";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import ErrorPage from './pages/ErrorPage.tsx';
+import QuizPage from './pages/QuizPage.tsx';
+import StudySetPage from './pages/StudyGuidePage.tsx';
+import TermsPage from './pages/TermsPage.tsx';
+import CategoriesPage from './pages/CategoriesPage.tsx';
+import AccountPage from './pages/AccountPage.tsx';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "quiz",
+        path: 'quiz',
         element: <QuizPage />,
       },
       {
-        path: "study-guide",
-        element: <StudyGuidePage />,
+        path: 'study-guide',
+        element: <StudySetPage />,
       },
       {
-        path: "terms",
+        path: 'terms',
         element: <TermsPage />,
       },
       {
-        path: "categories",
+        path: 'categories',
         element: <CategoriesPage />,
       },
       {
-        path: "account",
+        path: 'account',
         element: <AccountPage />,
       },
     ],
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

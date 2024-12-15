@@ -1,46 +1,45 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
 import {
   AccountBox,
   Category,
   MenuBook,
   Notes,
   Quiz,
-} from "@mui/icons-material";
-import ListItemLink from "./ListItemLink";
-import { NavigationItem } from "./ListItemLink";
+} from '@mui/icons-material';
+import ListItemLink from './ListItemLink';
+import { NavigationItem } from './ListItemLink';
 
 const TopNavigationItems: NavigationItem[] = [
   {
-    name: "Quiz",
+    name: 'Quiz',
     icon: <Quiz />,
-    link: "/quiz",
+    link: '/quiz',
   },
   {
-    name: "Study Guide",
+    name: 'Study Guide',
     icon: <MenuBook />,
-    link: "/study-guide",
+    link: '/study-guide',
   },
   {
-    name: "Terms",
+    name: 'Terms',
     icon: <Notes />,
-    link: "/terms",
+    link: '/terms',
   },
   {
-    name: "Categories",
+    name: 'Categories',
     icon: <Category />,
-    link: "/categories",
+    link: '/categories',
   },
 ];
 
 const BottomNavigationItems: NavigationItem[] = [
   {
-    name: "Account",
+    name: 'Account',
     icon: <AccountBox />,
-    link: "/account",
+    link: '/account',
   },
 ];
 
@@ -55,7 +54,7 @@ export default function TemporaryDrawer({
 }: TemporaryDrawerProps) {
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={() => toggleDrawer()}>
-      <List key={"TopNavigationItems"}>
+      <List key={'TopNavigationItems'}>
         {TopNavigationItems.map((navItem) => (
           <ListItemLink
             key={`${navItem.name}-list-item-link`}
@@ -64,7 +63,7 @@ export default function TemporaryDrawer({
         ))}
       </List>
       <Divider />
-      <List key={"BottomNavigationItems"}>
+      <List key={'BottomNavigationItems'}>
         {BottomNavigationItems.map((navItem) => (
           <ListItemLink
             key={`${navItem.name}-list-item-link`}
