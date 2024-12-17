@@ -23,6 +23,7 @@ function App() {
   const [studySets, setStudySets] = useState<StudySet[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [studySetToEdit, setStudySetToEdit] = useState<StudySet | null>(null);
 
   useEffect(() => {
     const loadData = async () => {
@@ -54,7 +55,18 @@ function App() {
     return <div>{`Failed to load study set data due to ${error}`}</div>;
   }
 
-  return <>{StudyGuideCarousel()}</>;
+  return (
+    <>
+      {studySetToEdit ? (
+        <div>
+          <Button onClick={() => setStudySetToEdit(null)}>Back</Button>
+          <p>Let's pretend you're editing a study set</p>
+        </div>
+      ) : (
+        StudyGuideCarousel()
+      )}
+    </>
+  );
 
   function StudyGuideCarousel() {
     return (
@@ -82,8 +94,20 @@ function App() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Button variant="default">Quiz</Button>
-          <Button variant="secondary">Edit</Button>
+          <Button
+            onClick={() =>
+              console.log(`This will start a quiz for ${studySet.name}`)
+            }
+            variant="default"
+          >
+            Quiz
+          </Button>
+          <Button
+            onClick={() => setStudySetToEdit(studySet)}
+            variant="secondary"
+          >
+            Edit
+          </Button>
         </CardContent>
         <CardFooter></CardFooter>
       </Card>
