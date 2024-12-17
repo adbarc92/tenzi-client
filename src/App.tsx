@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 import { loadFakeStudySet } from './utils/loadData';
-import { StudySetCollection } from './model/StudySetCollection';
 import { StudySet } from './model/StudySet';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from './components/ui/card';
 
 function App() {
-  const [count, setCount] = useState(0);
   const [studySets, setStudySets] = useState<StudySet[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -42,7 +46,24 @@ function App() {
     return <div>{`Failed to load study set data due to ${error}`}</div>;
   }
 
-  return <>{}</>;
+  return (
+    <>
+      {studySets.map((studySet) => (
+        <Card>
+          <CardHeader>
+            <CardTitle>{studySet.name}</CardTitle>
+            <CardDescription>Card Description</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+          <CardFooter>
+            <p>Card Footer</p>
+          </CardFooter>
+        </Card>
+      ))}
+    </>
+  );
 }
 
 export default App;

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    /* Added to Shadcn */
+    /* Added for Shadcn */
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
