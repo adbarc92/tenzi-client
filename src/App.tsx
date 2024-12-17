@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from './components/ui/card';
+import { Button } from './components/ui/button';
 
 function App() {
   const [studySets, setStudySets] = useState<StudySet[]>([]);
@@ -52,13 +53,16 @@ function App() {
         <Card>
           <CardHeader>
             <CardTitle>{studySet.name}</CardTitle>
-            <CardDescription>Card Description</CardDescription>
+            {/* <CardDescription>
+              This is a description of the study guide
+            </CardDescription> */}
           </CardHeader>
           <CardContent>
-            <p>Card Content</p>
+            <p>This is the main content.</p>
           </CardContent>
           <CardFooter>
-            <p>Card Footer</p>
+            <Button variant="default">Quiz</Button>
+            <Button variant="secondary">Edit</Button>
           </CardFooter>
         </Card>
       ))}
