@@ -11,6 +11,13 @@ import {
   CardTitle,
 } from './components/ui/card';
 import { Button } from './components/ui/button';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from './components/ui/carousel';
 
 function App() {
   const [studySets, setStudySets] = useState<StudySet[]>([]);
@@ -47,27 +54,41 @@ function App() {
     return <div>{`Failed to load study set data due to ${error}`}</div>;
   }
 
-  return (
-    <>
-      {studySets.map((studySet) => (
-        <Card>
-          <CardHeader>
-            <CardTitle>{studySet.name}</CardTitle>
-            {/* <CardDescription>
-              This is a description of the study guide
-            </CardDescription> */}
-          </CardHeader>
-          <CardContent>
-            <p>This is the main content.</p>
-          </CardContent>
-          <CardFooter>
-            <Button variant="default">Quiz</Button>
-            <Button variant="secondary">Edit</Button>
-          </CardFooter>
-        </Card>
-      ))}
-    </>
-  );
+  return <>{StudyGuideCarousel()}</>;
+
+  function StudyGuideCarousel() {
+    return (
+      <Carousel className="w-full max-w-xs">
+        <CarouselContent>
+          {studySets.map((studySet, index) => (
+            <CarouselItem key={index}>
+              <div className="p-1">{StudyGuideCard(studySet)}</div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    );
+  }
+
+  function StudyGuideCard(studySet: StudySet) {
+    return (
+      <Card>
+        <CardHeader>
+          <CardTitle>{studySet.name}</CardTitle>
+          <CardDescription>
+            This is a description of the study guide
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <Button variant="default">Quiz</Button>
+          <Button variant="secondary">Edit</Button>
+        </CardContent>
+        <CardFooter></CardFooter>
+      </Card>
+    );
+  }
 }
 
 export default App;
